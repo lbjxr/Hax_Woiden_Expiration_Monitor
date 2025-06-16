@@ -24,7 +24,7 @@ project/                 # 自行创建一个文件夹存放项目文件，名�
 ├── hax.py               # HAX 数据中心监控脚本
 ├── requirements.txt     # 所有依赖声明
 ├── Dockerfile           # Docker 镜像定义
-├── run.sh               # 一键 Docker 构建 + 启动脚本
+├── run_docker.sh        # 一键 Docker 构建 + 启动脚本
 ├── run_server.sh        # 一键后台运行（非 Docker）
 └── logs/                # 自动生成日志文件目录
 ```
@@ -72,14 +72,15 @@ pkill -f hax.py
 ### 🔧 构建镜像并运行
 
 ```bash
-chmod +x run.sh
-./run.sh
+chmod +x run_docker.sh
+./run_docker.sh
 ```
 
 你可以选择运行：
 
 - `bot.py`（Telegram Bot）
 - `hax.py`（HAX 监控）
+- '同时启动 bot.py 和 hax.py 脚本...'
 - 任意一个都可在容器中独立运行
 
 ---
@@ -91,7 +92,7 @@ chmod +x run.sh
 - `requests`
 - `beautifulsoup4`
 - `lxml`
-- `python-telegram-bot >= 20.0`
+- `python-telegram-bot[job-queue]>=20.0`
 
 安装方式：
 
