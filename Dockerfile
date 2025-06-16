@@ -4,8 +4,8 @@ FROM python:3.11-slim
 # 设置工作目录
 WORKDIR /app
 
-# 复制代码和依赖
-COPY . /app
+# 复制依赖
+COPY requirements.txt /app/requirements.txt
 
 # 安装依赖
 RUN pip install --no-cache-dir -r requirements.txt
