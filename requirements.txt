@@ -1,0 +1,13 @@
+requests
+beautifulsoup4
+lxml
+python-telegram-bot>=20.0
+sys
+time
+datetime
+logging
+json
+uuid
+timedelta
+asyncio
+ZoneInfo
