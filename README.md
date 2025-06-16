@@ -1,6 +1,7 @@
 # Telegram Bot + HAX 数据监控脚本
 
 这是一个用于 Telegram Bot 管理和 HAX.CO.ID 数据中心监控的组合型项目，支持 **Docker 部署** 和 **服务器后台运行** 两种模式。
+项目原始代码是tg群友（名字ez ez）提供的（大佬，有什么问题请私聊我，考虑个人隐私暂不贴出来大佬tg账号），直接运行报错，我利用chatgpt修改和完善了一下，目前运行正常。
 
 ---
 
@@ -14,6 +15,21 @@
 
 ---
 
+
+## 📂 项目结构
+
+```
+project/                 # 自行创建一个文件夹存放项目文件，名称随意，英文命名
+├── bot.py               # Telegram Bot 主程序
+├── hax.py               # HAX 数据中心监控脚本
+├── requirements.txt     # 所有依赖声明
+├── Dockerfile           # Docker 镜像定义
+├── run.sh               # 一键 Docker 构建 + 启动脚本
+├── run_server.sh        # 一键后台运行（非 Docker）
+└── logs/                # 自动生成日志文件目录
+```
+
+
 ## 🖥️ 运行方式一：普通服务器后台运行
 
 ### ✅ 前提
@@ -23,10 +39,10 @@
 
 ### ▶️ 一键运行
 
-\`\`\`bash
+```bash
 chmod +x run_server.sh
 ./run_server.sh
-\`\`\`
+```
 
 首次运行将：
 
@@ -37,17 +53,17 @@ chmod +x run_server.sh
 
 ### 📄 查看日志
 
-\`\`\`bash
+```bash
 tail -f logs/bot.log     # 查看 Telegram Bot 日志
 tail -f logs/hax.log     # 查看 HAX 监控日志
-\`\`\`
+```
 
 ### ❌ 停止进程
 
-\`\`\`bash
+```bash
 pkill -f bot.py
 pkill -f hax.py
-\`\`\`
+```
 
 ---
 
@@ -55,10 +71,10 @@ pkill -f hax.py
 
 ### 🔧 构建镜像并运行
 
-\`\`\`bash
+```bash
 chmod +x run.sh
 ./run.sh
-\`\`\`
+```
 
 你可以选择运行：
 
@@ -67,19 +83,6 @@ chmod +x run.sh
 - 任意一个都可在容器中独立运行
 
 ---
-
-## 📂 项目结构
-
-\`\`\`
-project/
-├── bot.py               # Telegram Bot 主程序
-├── hax.py               # HAX 数据中心监控脚本
-├── requirements.txt     # 所有依赖声明
-├── Dockerfile           # Docker 镜像定义
-├── run.sh               # 一键 Docker 构建 + 启动脚本
-├── run_server.sh        # 一键后台运行（非 Docker）
-└── logs/                # 自动生成日志文件目录
-\`\`\`
 
 ---
 
@@ -92,9 +95,9 @@ project/
 
 安装方式：
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ---
 
